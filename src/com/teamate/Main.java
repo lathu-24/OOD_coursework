@@ -11,7 +11,8 @@ public class Main {
             System.out.println("Loaded participants: " + participants.size());
 
             Scanner sc = new Scanner(System.in);
-            System.out.print("Enter team size (N): ");
+            System.out.print("Enter team size : ");
+
             int teamSize = sc.nextInt();
 
             // ---------- TEAM SIZE VALIDATION ----------

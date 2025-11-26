@@ -20,7 +20,7 @@ public class Main {
                 System.err.println("Invalid team size. Team size must be between 3 and 50.");
                 return;
             }
-            // -------------------------------------------
+
 
             ExecutorService ex = Executors.newSingleThreadExecutor();
             TeamBuilder builder = new TeamBuilder(participants, teamSize);

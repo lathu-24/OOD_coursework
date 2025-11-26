@@ -5,8 +5,8 @@ import java.util.concurrent.*;
 
 public class Main {
     public static void main(String[] args) {
-        try { 
-            String csvPath = "data/participants_sample.csv"; // fixed CSV file location
+        try {
+            String csvPath = "data/participants_sample.csv"; // fixed CSV file path
             List<Participant> participants = FileHandler.readParticipants(csvPath);
             System.out.println("Loaded participants: " + participants.size());
 

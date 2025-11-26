@@ -13,7 +13,13 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             System.out.print("Enter team size (N): ");
             int teamSize = sc.nextInt();
-            if (teamSize <= 0) { System.err.println("Team size must be > 0"); return; }
+
+            // ---------- TEAM SIZE VALIDATION ----------
+            if (teamSize < 3 || teamSize > 50) {
+                System.err.println("Invalid team size. Team size must be between 3 and 50.");
+                return;
+            }
+            // -------------------------------------------
 
             ExecutorService ex = Executors.newSingleThreadExecutor();
             TeamBuilder builder = new TeamBuilder(participants, teamSize);

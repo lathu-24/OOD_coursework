@@ -53,7 +53,7 @@ public class Main {
             System.out.println("Saved formed teams to: " + out);
 
         } catch (Exception e) {
-            System.err.println("Invalid input");
+            System.err.println("Invalid inputs");
         }
 
     }

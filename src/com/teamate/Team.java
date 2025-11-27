@@ -4,13 +4,21 @@ import java.util.*;
 import java.util.stream.*;
 
 public class Team {
+
     private List<Participant> members = new ArrayList<>();
     private int targetSize;
 
-    public Team(int targetSize) { this.targetSize = targetSize; }
+    public Team(int targetSize) {
+        this.targetSize = targetSize;
+    }
 
-    public boolean canAdd() { return members.size() < targetSize; }
-    public boolean isFull() { return members.size() >= targetSize; }
+    public boolean canAdd() {
+        return members.size() < targetSize;
+    }
+
+    public boolean isFull() {
+        return members.size() >= targetSize;
+    }
 
     public boolean addMember(Participant p) {
         if (!canAdd()) return false;
@@ -18,8 +26,17 @@ public class Team {
         return true;
     }
 
-    public int size() { return members.size(); }
-    public List<Participant> getMembers() { return members; }
+    public int getTargetSize() {
+        return targetSize;
+    }
+
+    public int size() {
+        return members.size();
+    }
+
+    public List<Participant> getMembers() {
+        return members;
+    }
 
     public double averageSkill() {
         if (members.isEmpty()) return 0.0;
@@ -41,7 +58,8 @@ public class Team {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Participant p : members) sb.append(p.getId()).append("(").append(p.getName()).append("), ");
+        for (Participant p : members)
+            sb.append(p.getId()).append("(").append(p.getName()).append("), ");
         if (sb.length()>=2) sb.setLength(sb.length()-2);
         return sb.toString();
     }

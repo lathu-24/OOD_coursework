@@ -7,3 +7,32 @@
 2025-11-27T16:53:15.646659 - System started. Loading CSV file...
 2025-11-27T16:53:15.654438 - Team formation started.
 2025-11-27T16:53:20.205931 - Assigning participants to teams...
+2025-11-28T09:37:34.524803 - Application started.
+2025-11-28T09:37:34.535103 - Loaded 100 participants from CSV.
+2025-11-28T09:37:34.535653 - Loaded participants at startup: 100
+2025-11-28T09:37:52.652095 - Loaded 100 participants from CSV.
+2025-11-28T09:37:52.653093 - Organizer loaded CSV, participants=100
+2025-11-28T09:38:00.896024 - Organizer set team size: 5
+2025-11-28T09:38:08.690290 - Organizer initiated team formation. teamSize=5, participants=100
+2025-11-28T09:38:08.695807 - Assigning participants to teams...
+2025-11-28T09:38:08.722940 - Team formation completed. teams=20
+2025-11-28T09:38:08.723652 - Generated teams saved to data/formed_teams.csv
+2025-11-28T09:39:16.564084 - Application started.
+2025-11-28T09:39:16.574540 - Loaded 100 participants from CSV.
+2025-11-28T09:39:16.574969 - Loaded participants at startup: 100
+2025-11-28T09:39:39.012648 - Application exiting by user.
+2025-11-28T09:39:44.809271 - Application started.
+2025-11-28T09:39:44.818021 - Loaded 100 participants from CSV.
+2025-11-28T09:39:44.818450 - Loaded participants at startup: 100
+2025-11-28T09:41:51.272286 - Participant submitted survey: P101
+2025-11-28T09:42:46.624397 - Loaded 101 participants from CSV.
+2025-11-28T09:42:46.626125 - Organizer loaded CSV, participants=101
+2025-11-28T09:42:53.693608 - Organizer set team size: 5
+2025-11-28T09:43:03.853351 - Organizer initiated team formation. teamSize=5, participants=101
+2025-11-28T09:43:03.858039 - Assigning participants to teams...
+2025-11-28T09:43:03.887807 - Team formation completed. teams=20
+2025-11-28T09:43:03.888531 - Generated teams saved to data/formed_teams.csv
+2025-11-28T09:44:18.583999 - Application started.
+2025-11-28T09:44:18.594794 - Loaded 101 participants from CSV.
+2025-11-28T09:44:18.595222 - Loaded participants at startup: 101
+2025-11-28T09:48:28.335900 - Participant submitted survey: qwds

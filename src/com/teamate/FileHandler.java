@@ -120,6 +120,41 @@ public class FileHandler {
         return String.format("P%03d", next);
     }
 
+    //remove participant
+    public static boolean removeParticipantById(String path, String idToRemove) {
+        List<String> lines = new ArrayList<>();
+        boolean removed = false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith(idToRemove + ",")) {
+                    removed = true; // found and removed
+                    continue;       // skip adding this line
+                }
+                lines.add(line);
+            }
+        } catch (Exception e) {
+            System.out.println("Error reading CSV: " + e.getMessage());
+            return false;
+        }
+
+        if (!removed) return false;
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+            for (String l : lines) {
+                bw.write(l);
+                bw.newLine();
+            }
+        } catch (Exception e) {
+            System.out.println("Error writing CSV: " + e.getMessage());
+            return false;
+        }
+
+        return true;
+    }
+
+
     // Create CSV with header only
     private static void createCSVWithHeader(String path) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {

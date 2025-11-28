@@ -11,6 +11,10 @@ import applogger.AppLogger;
 public class Main {
     private static final String PARTICIPANTS_CSV = "data/participants_sample.csv";
     private static final String FORMED_TEAMS_CSV = "data/formed_teams.csv";
+    private static List<Participant> participants = new ArrayList<>();
+    private static List<Team> lastFormedTeams = null;
+
+    private static Integer storedTeamSize = null;
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -46,7 +50,8 @@ public class Main {
                     System.out.println("2. Input team size");
                     System.out.println("3. Initiate team formation");
                     System.out.println("4. View generated teams");
-                    System.out.println("0. Back");
+                    System.out.print("5. Remove participants: ");
+                    System.out.println("\n0. Back");
                     System.out.print("Choose: ");
                     String opt = sc.nextLine().trim();
 
@@ -122,11 +127,26 @@ public class Main {
                                 displayTeamsFromFile(FORMED_TEAMS_CSV);
                             }
                         }
+
+                        case "5" -> {
+                            System.out.print("Enter Participant ID to remove: ");
+                            String rid = sc.nextLine().trim();
+
+                            boolean ok = FileHandler.removeParticipantById(PARTICIPANTS_CSV, rid);
+
+                            if (ok) {
+                                System.out.println("Participant removed successfully.");
+                                AppLogger.log("Participant " + rid + " removed from CSV.");
+                            } else {
+                                System.out.println("Participant ID not found.");
+                            }
+                        }
+
                         case "0" -> back = true;
                         default -> System.err.println("Invalid option.");
                     }
                 }
-            } else if (roleChoice.equals("2")) {
+            }else if (roleChoice.equals("2")) {
                 // Participant menu
                 boolean back = false;
                 while (!back) {
@@ -138,20 +158,27 @@ public class Main {
                     String opt = sc.nextLine().trim();
 
                     switch (opt) {
+
                         case "1" -> {
                             try {
+                                // Read new participant info
                                 Participant newP = readParticipantFromConsole();
-                                // append to CSV file
+
+                                // Append to CSV
                                 appendParticipantToCSV(newP, PARTICIPANTS_CSV);
-                                // also add to in-memory list (so organizer can form with updated list without reload)
+
+                                // Add to in-memory list
                                 participants.add(newP);
-                                System.out.println("Survey submitted. Thank you!");
+
+                                System.out.println("Survey submitted successfully!");
                                 AppLogger.log("Participant submitted survey: " + newP.getId());
-                            } catch (Exception e) {
+                            }
+                            catch (Exception e) {
                                 System.err.println("Failed to submit survey: " + e.getMessage());
                                 AppLogger.log("Participant submit failed: " + e.getMessage());
                             }
                         }
+
                         case "2" -> {
                             if (lastFormedTeams != null && !lastFormedTeams.isEmpty()) {
                                 displayTeamsInMemory(lastFormedTeams);
@@ -159,7 +186,9 @@ public class Main {
                                 displayTeamsFromFile(FORMED_TEAMS_CSV);
                             }
                         }
+
                         case "0" -> back = true;
+
                         default -> System.err.println("Invalid option.");
                     }
                 }
@@ -172,9 +201,33 @@ public class Main {
     // ---------------- Helper methods ----------------
 
     private static Participant readParticipantFromConsole() {
-        // read fields, with simple validation
-        System.out.print("Enter ID (e.g. P101): ");
-        String id = sc.nextLine().trim();
+        // 🔄 Always refresh participants list from CSV to ensure duplicate checking works
+        try {
+            participants = FileHandler.readParticipants(PARTICIPANTS_CSV);
+        } catch (Exception e) {
+            System.err.println("Could not load CSV for duplicate ID checking.");
+        }
+        // --- ID validation ---
+        String id;
+        while (true) {
+            System.out.print("Enter ID (e.g. P101): ");
+            id = sc.nextLine().trim();
+
+            boolean exists = false;
+            for (Participant p : participants) {
+                if (p.getId().equalsIgnoreCase(id)) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (exists) {
+                System.out.println("❌ ID already exists. Please enter a new ID.");
+            } else {
+                break;
+            }
+        }
+
+        // --- Basic info ---
         System.out.print("Name: ");
         String name = sc.nextLine().trim();
         System.out.print("Email: ");
@@ -183,24 +236,39 @@ public class Main {
         String game = sc.nextLine().trim();
 
         int skill = readIntWithRange("Skill level (1-10): ", 1, 10);
-        System.out.println("Preferred role (choose number): 1. Strategist 2. Defender 3. Attacker 4. Coordinator");
+
+        System.out.println("Preferred role (choose number):");
+        System.out.println("1. Strategist  2. Defender  3. Attacker  4. Coordinator");
         String role = switch (readIntWithRange("Role (1-4): ", 1, 4)) {
             case 1 -> "Strategist";
             case 2 -> "Defender";
             case 3 -> "Attacker";
             default -> "Coordinator";
         };
-        int pScore = readIntWithRange("Personality score (0-100): ", 0, 100);
-        System.out.println("Personality type: 1. Leader 2. Thinker 3. Balanced");
-        String pType = switch (readIntWithRange("Type (1-3): ", 1, 3)) {
-            case 1 -> "Leader";
-            case 2 -> "Thinker";
-            default -> "Balanced";
-        };
 
-        return new Participant(id, name, email, game, role, skill, pScore, pType);
+        // -------------------------------
+        //  Personality Survey (5 questions)
+        // -------------------------------
+        System.out.println("\nRate each question from 1 (Strongly Disagree) to 5 (Strongly Agree)");
+
+        int q1 = readIntWithRange("Q1. I enjoy taking the lead: ", 1, 5);
+        int q2 = readIntWithRange("Q2. I prefer analyzing situations: ", 1, 5);
+        int q3 = readIntWithRange("Q3. I work well with others: ", 1, 5);
+        int q4 = readIntWithRange("Q4. I stay calm under pressure: ", 1, 5);
+        int q5 = readIntWithRange("Q5. I like making quick decisions: ", 1, 5);
+
+        int total = q1 + q2 + q3 + q4 + q5;         // 5–25
+        int scaledScore = total * 4;                // 0–100 scale
+
+        // classify personality using your rules
+        String personalityType = PersonalityClassifier.classify(scaledScore);
+
+        System.out.println("\nCalculated Personality Score: " + scaledScore);
+        System.out.println("Assigned Personality Type: " + personalityType);
+
+        // create and return participant
+        return new Participant(id, name, email, game, role, skill, scaledScore, personalityType);
     }
-
     private static int readIntWithRange(String prompt, int min, int max) {
         while (true) {
             System.out.print(prompt);

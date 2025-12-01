@@ -77,48 +77,12 @@ public class FileHandler {
         AppLogger.log("Generated teams saved to " + path);
     }
 
-    // --------------------------------------------------------------------
-    // APPEND NEW PARTICIPANT (from survey)
-    // --------------------------------------------------------------------
-    public static void appendParticipant(String path, Participant p) throws IOException {
 
-        File file = new File(path);
-        if (!file.exists()) {
-            createCSVWithHeader(path);
-        }
-
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-            bw.write(toCSV(p));
-            bw.newLine();
-        }
-
-        AppLogger.log("New participant added: " + p.getId());
-    }
-
-    // Convert participant → CSV line
-    private static String toCSV(Participant p) {
-        return p.getId() + "," + p.getName() + "," + p.getEmail() + "," +
-                p.getGame() + "," + p.getSkill() + "," + p.getRole() + "," +
-                p.getPersonalityScore() + "," + p.getPersonalityType();
-    }
 
     // --------------------------------------------------------------------
     // GENERATE NEW PARTICIPANT ID (P001, P002 …)
     // --------------------------------------------------------------------
-    public static String generateNewID(String path) throws IOException {
-        List<Participant> list = readParticipants(path);
 
-        int max = 0;
-        for (Participant p : list) {
-            try {
-                int num = Integer.parseInt(p.getId().substring(1));
-                if (num > max) max = num;
-            } catch (Exception ignored) {}
-        }
-
-        int next = max + 1;
-        return String.format("P%03d", next);
-    }
 
     //remove participant
     public static boolean removeParticipantById(String path, String idToRemove) {

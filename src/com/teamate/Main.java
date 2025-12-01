@@ -50,7 +50,7 @@ public class Main {
                     System.out.println("2. Input team size");
                     System.out.println("3. Initiate team formation");
                     System.out.println("4. View generated teams");
-                    System.out.print("5. Remove participants: ");
+                    System.out.print("5. Remove participants ");
                     System.out.println("\n0. Back");
                     System.out.print("Choose: ");
                     String opt = sc.nextLine().trim();
@@ -99,7 +99,7 @@ public class Main {
                             TeamBuilder builder = new TeamBuilder(participants, storedTeamSize);
                             Future<List<Team>> future = ex.submit(builder::formTeams);
                             try {
-                                lastFormedTeams = future.get(); // we wait; still demonstrates background usage
+                                lastFormedTeams = future.get();
                                 System.out.println("Team formation completed. Teams created: " + lastFormedTeams.size());
                                 AppLogger.log("Team formation completed. teams=" + lastFormedTeams.size());
                                 // Save formed teams to CSV

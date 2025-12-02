@@ -230,8 +230,20 @@ public class Main {
         // --- Basic info ---
         System.out.print("Name: ");
         String name = sc.nextLine().trim();
-        System.out.print("Email: ");
-        String email = sc.nextLine().trim();
+        // --- Email validation ---
+        String email;
+        while (true) {
+            System.out.print("Email: ");
+            email = sc.nextLine().trim();
+
+            // Simple email validation regex
+            if (email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+                break;
+            } else {
+                System.out.println("❌ Invalid email format. Please enter a valid email (e.g., user@example.com).");
+            }
+        }
+
         System.out.print("Preferred game: ");
         String game = sc.nextLine().trim();
 

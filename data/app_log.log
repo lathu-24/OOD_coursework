@@ -313,3 +313,97 @@
 2025-12-02T19:39:33.525840 - Application started.
 2025-12-02T19:39:33.535241 - Loaded 100 participants from CSV.
 2025-12-02T19:39:33.535693 - Loaded participants at startup: 100
+2025-12-02T19:41:13.402891 - Application started.
+2025-12-02T19:41:13.411577 - Loaded 100 participants from CSV.
+2025-12-02T19:41:13.411937 - Loaded participants at startup: 100
+2025-12-02T19:41:18.848561 - Loaded 100 participants from CSV.
+2025-12-02T19:42:07.422626 - Participant submitted survey: P102
+2025-12-02T19:42:35.870837 - Participant P102 removed from CSV.
+2025-12-02T19:43:32.649058 - Application started.
+2025-12-02T19:43:32.657011 - Loaded 100 participants from CSV.
+2025-12-02T19:43:32.657382 - Loaded participants at startup: 100
+2025-12-02T19:43:38.609616 - Loaded 100 participants from CSV.
+2025-12-02T19:43:38.610905 - Organizer loaded CSV, participants=100
+2025-12-02T19:43:44.832713 - Organizer set team size: 10
+2025-12-02T19:43:52.831048 - Organizer initiated team formation. teamSize=10, participants=100
+2025-12-02T19:43:52.836620 - Assigning participants to teams...
+2025-12-02T19:43:52.863589 - Team formation completed. teams=10
+2025-12-02T19:43:52.864548 - Generated teams saved to data/formed_teams.csv
+2025-12-02T19:47:40.471323 - Application started.
+2025-12-02T19:47:40.479198 - Loaded 100 participants from CSV.
+2025-12-02T19:47:40.479579 - Loaded participants at startup: 100
+2025-12-02T19:48:51.498305 - Application started.
+2025-12-02T19:48:51.507711 - Loaded 100 participants from CSV.
+2025-12-02T19:48:51.508075 - Loaded participants at startup: 100
+2025-12-03T15:18:12.582786 - Application started.
+2025-12-03T15:18:12.596136 - Loaded 100 participants from CSV.
+2025-12-03T15:18:12.596825 - Loaded participants at startup: 100
+2025-12-03T15:18:26.708293 - Loaded 100 participants from CSV.
+2025-12-03T15:18:26.709216 - Organizer loaded CSV, participants=100
+2025-12-03T15:18:50.252575 - Loaded 100 participants from CSV.
+2025-12-03T15:18:50.253214 - Organizer loaded CSV, participants=100
+2025-12-03T15:19:42.078751 - Organizer set team size: 6
+2025-12-03T15:19:50.235431 - Organizer initiated team formation. teamSize=6, participants=100
+2025-12-03T15:19:50.240695 - Assigning participants to teams...
+2025-12-03T15:19:50.269363 - Team formation completed. teams=16
+2025-12-03T15:19:50.270569 - Generated teams saved to data/formed_teams.csv
+2025-12-03T15:21:32.692593 - Loaded 100 participants from CSV.
+2025-12-03T15:22:28.479600 - Participant submitted survey: jtkuli7675
+2025-12-03T15:22:38.610768 - Application exiting by user.
+2025-12-03T15:22:57.909491 - Application started.
+2025-12-03T15:22:57.917357 - Loaded 101 participants from CSV.
+2025-12-03T15:22:57.917962 - Loaded participants at startup: 101
+2025-12-03T15:23:28.879892 - Loaded 101 participants from CSV.
+2025-12-03T15:23:28.881929 - Organizer loaded CSV, participants=101
+2025-12-03T15:24:02.028405 - Application started.
+2025-12-03T15:24:02.036164 - Loaded 101 participants from CSV.
+2025-12-03T15:24:02.036536 - Loaded participants at startup: 101
+2025-12-03T15:25:24.573820 - Participant jtkuli7675 removed from CSV.
+2025-12-03T15:25:32.026110 - Application exiting by user.
+2025-12-03T15:29:12.104521 - Application started.
+2025-12-03T15:29:12.112337 - Loaded 100 participants from CSV.
+2025-12-03T15:29:12.112690 - Loaded participants at startup: 100
+2025-12-03T15:29:20.158057 - Loaded 100 participants from CSV.
+2025-12-03T15:29:20.158829 - Organizer loaded CSV, participants=100
+2025-12-03T15:29:24.747397 - Organizer set team size: 3
+2025-12-03T17:05:30.267922 - Application started.
+2025-12-03T17:05:30.277522 - Loaded 100 participants from CSV.
+2025-12-03T17:05:30.277986 - Loaded participants at startup: 100
+2025-12-03T17:05:38.691541 - Loaded 100 participants from CSV.
+2025-12-03T17:05:38.692343 - Organizer loaded CSV, participants=100
+2025-12-03T17:05:41.239678 - Organizer set team size: 4
+2025-12-03T17:05:43.886335 - Organizer initiated team formation. teamSize=4, participants=100
+2025-12-03T17:05:43.890200 - Assigning participants to teams...
+2025-12-03T17:05:43.918518 - Team formation completed. teams=25
+2025-12-03T17:05:43.919395 - Generated teams saved to data/formed_teams.csv
+2025-12-03T17:17:17.891168 - Application started.
+2025-12-03T17:17:17.900060 - Loaded 100 participants from CSV.
+2025-12-03T17:17:17.900446 - Loaded participants at startup: 100
+2025-12-03T17:17:23.405905 - Loaded 100 participants from CSV.
+2025-12-03T17:17:23.406648 - Organizer loaded CSV, participants=100
+2025-12-03T17:17:26.517896 - Organizer set team size: 4
+2025-12-03T17:17:28.782850 - Organizer initiated team formation. teamSize=4, participants=100
+2025-12-03T17:17:28.787065 - Assigning participants to teams...
+2025-12-03T17:17:28.817005 - Team formation completed. teams=25
+2025-12-03T17:17:28.817780 - Generated teams saved to data/formed_teams.csv
+2025-12-03T17:17:39.046756 - Loaded 100 participants from CSV.
+2025-12-03T17:17:39.047382 - Organizer loaded CSV, participants=100
+2025-12-03T17:17:41.410761 - Organizer set team size: 3
+2025-12-03T17:17:47.233681 - Organizer initiated team formation. teamSize=3, participants=100
+2025-12-03T17:17:47.235370 - Assigning participants to teams...
+2025-12-03T17:17:47.245253 - Team formation completed. teams=33
+2025-12-03T17:17:47.246137 - Generated teams saved to data/formed_teams.csv
+2025-12-04T14:08:15.155975 - Application started.
+2025-12-04T14:08:15.171726 - Loaded 100 participants from CSV.
+2025-12-04T14:08:15.173025 - Loaded participants at startup: 100
+2025-12-04T14:08:38.916453 - Loaded 100 participants from CSV.
+2025-12-04T14:08:38.917402 - Organizer loaded CSV, participants=100
+2025-12-04T14:08:48.000519 - Organizer set team size: 8
+2025-12-04T14:08:50.623296 - Organizer initiated team formation. teamSize=8, participants=100
+2025-12-04T14:08:50.627431 - Assigning participants to teams...
+2025-12-04T14:08:50.656127 - Team formation completed. teams=12
+2025-12-04T14:08:50.657181 - Generated teams saved to data/formed_teams.csv
+2025-12-04T14:09:15.811647 - Application exiting by user.
+2025-12-04T15:16:39.358672 - Application started.
+2025-12-04T15:16:39.367509 - Loaded 100 participants from CSV.
+2025-12-04T15:16:39.367902 - Loaded participants at startup: 100

@@ -5,8 +5,14 @@ public class Participant {
     private int skill, personalityScore;
 
     public Participant(String id, String name, String email, String game, String role, int skill, int personalityScore, String personalityType) {
-        this.id = id; this.name = name; this.email = email; this.game = game; this.role = role;
-        this.skill = skill; this.personalityScore = personalityScore; this.personalityType = personalityType;
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.game = game;
+        this.role = role;
+        this.skill = skill;
+        this.personalityScore = personalityScore;
+        this.personalityType = personalityType;
     }
 
     public String getId() { return id; }

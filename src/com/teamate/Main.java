@@ -195,8 +195,8 @@ public class Main {
             } else {
                 System.err.println("Invalid selection. Please enter 1 (Organizer) or 2 (Participant) or 0 to exit.");
             }
-        } // while
-    } // main
+        }
+    }
 
     // ---------------- Helper methods ----------------
 
@@ -258,9 +258,8 @@ public class Main {
             default -> "Coordinator";
         };
 
-        // -------------------------------
+
         //  Personality Survey (5 questions)
-        // -------------------------------
         System.out.println("\nRate each question from 1 (Strongly Disagree) to 5 (Strongly Agree)");
 
         int q1 = readIntWithRange("Q1. I enjoy taking the lead: ", 1, 5);

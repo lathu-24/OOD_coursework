@@ -9,9 +9,8 @@ public class FileHandler {
     private static final String HEADER =
             "ID,Name,Email,PreferredGame,Skill,PreferredRole,PersonalityScore,PersonalityType";
 
-    // --------------------------------------------------------------------
+
     // READ CSV
-    // --------------------------------------------------------------------
     public static List<Participant> readParticipants(String path) throws IOException {
         List<Participant> list = new ArrayList<>();
 
@@ -53,9 +52,7 @@ public class FileHandler {
         return list;
     }
 
-    // --------------------------------------------------------------------
     // WRITE GENERATED TEAMS
-    // --------------------------------------------------------------------
     public static void writeTeams(String path, List<Team> teams) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
 
@@ -76,12 +73,6 @@ public class FileHandler {
 
         AppLogger.log("Generated teams saved to " + path);
     }
-
-
-
-    // --------------------------------------------------------------------
-    // GENERATE NEW PARTICIPANT ID (P001, P002 …)
-    // --------------------------------------------------------------------
 
 
     //remove participant

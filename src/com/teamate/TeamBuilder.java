@@ -122,7 +122,7 @@ public class TeamBuilder {
     }
 
     // Distribute participants according to quotas. For each participant we pick a candidate team (teams with remaining quota and canAdd and respecting game cap)
-    // from those candidates choose the one with lowest avg skill (to balance).
+    // from those candidates choose the one with lower avg skill (to balance).
     private void distributeWithQuotas(List<Participant> list, int[] quotas, List<Team> teams) {
         if (list == null || list.isEmpty()) return;
         int teamCount = teams.size();
@@ -162,6 +162,7 @@ public class TeamBuilder {
                 // decrement quota if that team was in quota list and quotas[chosen] > 0
                 if (quotas[chosen] > 0) quotas[chosen]--;
             } else {
+                System.out.println(" ");
                 // completely full (shouldn't happen) - skip (will be handled in leftovers)
             }
         }
